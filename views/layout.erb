@@ -4,25 +4,34 @@
 <head>
   <meta charset="utf8">
   <title><%= @title + ' | Notes' %></title>
-  <link href="/reset.css" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<%= url('/bootstrap.min.css') %>">
+  <link rel="stylesheet" href="<%= url('/custom.css') %>">
+  <link href='https://fonts.googleapis.com/css?family=Kalam:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="<%= url('/normalize.css') %>">
 </head>
 
 <body>
 
-  <header>
-    <hgroup>
-      <h1><a href="/">Notes!</a></h1>
-      <h2>'cause you're too busy to remember</h2>
-    </hgroup>
-  </header>
- 
-  <div id="main">
-    <%= yield %>
+  <div class="container">
+
+    <div class="row">
+      <div class ="col-sm-12">
+        <header>
+            <h1 id="logo">Notes!</h1>
+            <h2 id="slogan">'cause you're too dumb to remember</h2>
+        </header>
+      </div>
+    </div>
+
+    
+    <div id="main">
+      <%= yield %>
+    </div>
+    
   </div>
- 
+
   <footer>
-    <p><small>An app built by Sebastián Delgado 2015</p>
+      <p>App built by Sebastián Delgado - 2015</p>
   </footer>
 
 </body>
