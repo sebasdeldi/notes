@@ -3,11 +3,14 @@
 
 <head>
   <meta charset="utf8">
-  <title><%= @title + ' | Notes' %></title>
+  <title><%= @title %>  | <%= SITE_TITLE %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
   <link rel="stylesheet" href="<%= url('/bootstrap.min.css') %>">
   <link rel="stylesheet" href="<%= url('/custom.css') %>">
   <link href='https://fonts.googleapis.com/css?family=Kalam:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<%= url('/normalize.css') %>">
+  <link href="/rss.xml" rel="alternate" type="application/rss+xml">
 </head>
 
 <body>
@@ -17,21 +20,30 @@
     <div class="row">
       <div class ="col-sm-12">
         <header>
-            <h1 id="logo">Notes!</h1>
-            <h2 id="slogan">'cause you're too dumb to remember</h2>
+            <h1 id="logo"><%= SITE_TITLE %></h1>
+            <h2 id="slogan"><%= SITE_DESCRIPTION %></h2>
         </header>
       </div>
     </div>
 
     
     <div id="main">
+
+      <% if flash[:notice] %>
+          <p class="notice"><%= flash[:notice] %>
+      <% end %>
+       
+      <% if flash[:error] %>
+          <p class="error"><%= flash[:error] %>
+      <% end %>
+      
       <%= yield %>
     </div>
-    
+
   </div>
 
   <footer>
-      <p>App built by Sebastián Delgado - 2015</p>
+      <p>Sebastián Delgado - 2015</p>
   </footer>
 
 </body>
